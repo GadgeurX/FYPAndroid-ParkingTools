@@ -147,6 +147,15 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener {
         this.map_view.onResume()
     }
 
+    override fun onPause() {
+        super.onPause()
+        fab.colorNormal = Color.parseColor("#4caf50")
+        fab.colorPressed = Color.parseColor("#80e27e")
+        fab.setImageResource(R.drawable.ic_play)
+        mParkingActive = false
+        stopRepeatingTask()
+    }
+
     override fun onLocationChanged(p0: Location?) {
         mUserLocation = p0
         mMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(mUserLocation!!.latitude, mUserLocation!!.longitude), 15.0f))
