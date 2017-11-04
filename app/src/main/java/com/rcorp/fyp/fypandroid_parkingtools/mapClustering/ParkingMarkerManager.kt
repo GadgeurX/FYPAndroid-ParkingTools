@@ -74,6 +74,7 @@ class ParkingMarkerManager (context : Context, map : GoogleMap){
                 .weightedData(mParkingZone)
                 .gradient(gradient)
                 .opacity(0.5)
+                .radius(50)
                 .build()
         mMap.addTileOverlay(TileOverlayOptions().tileProvider(provider))
     }
